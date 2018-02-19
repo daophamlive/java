@@ -1,0 +1,5 @@
+1.0;Nguyen Van A;0978754
+2.0;Le van C;345345
+3.0;Pham Minh D;3765647
+4.0;Quach thi E;56753234
+5.0;Le thi F;47823345
