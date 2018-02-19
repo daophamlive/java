@@ -22,6 +22,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		SortByName sort = new SortByName();
 		ArrayList<Customer> customers = new ArrayList<Customer>();
 
 		customers.add(new Customer(1, "Nguyen Van A", "0978754"));
@@ -30,22 +31,17 @@ public class Main {
 		customers.add(new Customer(4, "Quach thi E", "56753234"));
 		customers.add(new Customer(5, "Le thi F", "47823345"));
 
-
 		SerializeFileFactory.saveFile(customers, SERIAL_FILE);
-
 		customers = SerializeFileFactory.readFile(SERIAL_FILE);
-
+		Collections.sort(customers,sort);
 		PrintCustomers(customers);
+		
 		System.out.println("print bang text file");
 
 		TextFileFactory.saveFile(customers, TEXT_FILE);
-
 		customers = TextFileFactory.readFile(TEXT_FILE);
-
-		Collections.sort(customers);
+		Collections.sort(customers,sort);
 		PrintCustomers(customers);
-
-
 	}
 
 
