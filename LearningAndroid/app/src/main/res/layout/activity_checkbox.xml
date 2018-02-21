@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="fill"
+    tools:context="com.example.dao.learningandroid.CheckboxActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bạn muốn làm gì?" />
+
+    <CheckBox
+        android:id="@+id/checkBoxBuyHouse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mua nhà" />
+
+    <CheckBox
+        android:id="@+id/checkBoxBuyCar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mua xe" />
+
+    <CheckBox
+        android:id="@+id/checkBoxBuyIPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mua IPhone" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lựa chọn của bạn là" />
+
+    <TextView
+        android:id="@+id/textViewOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/btnBackToMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back to main"
+        android:onClick="onBackToMainActivity"/>
+</LinearLayout>
