@@ -9,4 +9,12 @@
         <item> Thứ 7</item>
         <item> Chủ Nhật</item>
     </string-array>
+
+    <string-array name="arrLocation">
+        <item> Ha Noi</item>
+        <item> Hue</item>
+        <item> Da Nang</item>
+        <item> Tp HCM</item>
+    </string-array>
+    <string name="input_name_hint">Input a name</string>
 </resources>

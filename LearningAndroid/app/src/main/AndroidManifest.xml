@@ -20,7 +20,10 @@
         <activity android:name=".CheckboxActivity" />
         <activity android:name=".ImageviewActivity" />
         <activity android:name=".ListviewActivity" />
-        <activity android:name=".ListViewDynamicActivity"></activity>
+        <activity android:name=".ListViewDynamicActivity" />
+        <activity android:name=".ListviewAdvancedActivity" />
+        <activity android:name=".GridViewActivity" />
+        <activity android:name=".DateTimeActivity"></activity>
     </application>
 
 </manifest>

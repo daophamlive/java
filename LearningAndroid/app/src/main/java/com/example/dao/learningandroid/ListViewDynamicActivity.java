@@ -9,15 +9,23 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.dao.model.Person;
 
 import java.util.ArrayList;
 
 public class ListViewDynamicActivity extends AppCompatActivity {
 
     ListView listView;
-    ArrayList<String> arrayListNames;
-    ArrayAdapter<String> adapterNames;
+    ArrayList<Person> arrayPersons;
+    ArrayAdapter<Person> adapterPerson;
+
+    Spinner spinnerLocation;
+    String [] arrLocation;
+    ArrayAdapter<String> adapterLocation;
+    String selectedLocaton = "Ha Noi";
 
     EditText txtName;
     @Override
@@ -32,20 +40,49 @@ public class ListViewDynamicActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         txtName = (EditText) findViewById(R.id.txtName);
 
-        arrayListNames = new ArrayList<String>();
-        adapterNames = new ArrayAdapter<String>(ListViewDynamicActivity.this,
+        arrayPersons = new ArrayList<Person>();
+        adapterPerson = new ArrayAdapter<Person>(ListViewDynamicActivity.this,
                                 android.R.layout.simple_list_item_1,
-                                arrayListNames);
-        listView.setAdapter(adapterNames);
+                arrayPersons);
+        listView.setAdapter(adapterPerson);
+
+        //for spinner
+        spinnerLocation = (Spinner) findViewById(R.id.spinnerLocaton);
+        arrLocation = getResources().getStringArray(R.array.arrLocation);
+        adapterLocation = new ArrayAdapter<String>(ListViewDynamicActivity.this,
+                android.R.layout.simple_spinner_item,
+                arrLocation);
+        adapterLocation.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+        spinnerLocation.setAdapter(adapterLocation);
     }
 
     private void addEvents() {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(ListViewDynamicActivity.this, "Ban chon thu " + arrayListNames.get(position).toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(ListViewDynamicActivity.this, "Ban chon thu " + arrayPersons.get(position), Toast.LENGTH_SHORT).show();
             }
         });
+
+        spinnerLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedLocaton = arrLocation[position];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+    }
+
+    public void onBtnAddName(View view) {
+        arrayPersons.add(new Person(txtName.getText().toString(), selectedLocaton));
+        adapterPerson.notifyDataSetChanged();
+        txtName.setText("");
+        txtName.requestFocus();
     }
 
     public void onBackToMainActivity(View view) {
@@ -56,12 +93,5 @@ public class ListViewDynamicActivity extends AppCompatActivity {
         if (intent != null)
             startActivity(intent);
         finish();
-    }
-
-    public void onBtnAddName(View view) {
-        arrayListNames.add(txtName.getText().toString());
-        adapterNames.notifyDataSetChanged();
-        txtName.setText("");
-        txtName.requestFocus();
     }
 }

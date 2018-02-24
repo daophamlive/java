@@ -14,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
     Button btnImageActivity;
     Button btnListviewActivity;
     Button btnListViewDynamicActivity;
+    Button btnListViewAdvancedActivity;
+    Button btnGridView;
+    Button btnDateTimePicker;
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     public static final String EXTRA_MESSAGE =
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         btnImageActivity = (Button) findViewById(R.id.btnImageActivity);
         btnListviewActivity = (Button) findViewById(R.id.btnListViewActivity);
         btnListViewDynamicActivity = (Button) findViewById(R.id.btnListViewDynamicActivity);
+        btnListViewAdvancedActivity = (Button) findViewById(R.id.btnListViewAdvancedActivity);
+        btnGridView = (Button) findViewById(R.id.btnGridView);
+        btnDateTimePicker = (Button) findViewById(R.id.btnDateTimePicker);
     }
 
     void addEvents()
@@ -44,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         btnImageActivity.setOnClickListener(myOnlyhandler);
         btnListviewActivity.setOnClickListener(myOnlyhandler);
         btnListViewDynamicActivity.setOnClickListener(myOnlyhandler);
+        btnListViewAdvancedActivity.setOnClickListener(myOnlyhandler);
+        btnGridView.setOnClickListener(myOnlyhandler);
+        btnDateTimePicker.setOnClickListener(myOnlyhandler);
     }
 
     View.OnClickListener myOnlyhandler = new View.OnClickListener() {
@@ -80,6 +89,24 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.btnListViewDynamicActivity: {
                     Log.d(LOG_TAG, "Button btnListViewDynamicActivity clicked!");
                     intent = new Intent(MainActivity.this, ListViewDynamicActivity.class);
+                }
+                break;
+
+                case R.id.btnListViewAdvancedActivity: {
+                    Log.d(LOG_TAG, "Button btnListViewAdvancedActivity clicked!");
+                    intent = new Intent(MainActivity.this, ListviewAdvancedActivity.class);
+                }
+                break;
+
+                case R.id.btnGridView: {
+                    Log.d(LOG_TAG, "Button btnGridView clicked!");
+                    intent = new Intent(MainActivity.this, GridViewActivity.class);
+                }
+                break;
+
+                case R.id.btnDateTimePicker: {
+                    Log.d(LOG_TAG, "Button btndatetimepicker clicked!");
+                    intent = new Intent(MainActivity.this, DateTimeActivity.class);
                 }
                 break;
                 default:

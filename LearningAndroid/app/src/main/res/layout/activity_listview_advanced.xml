@@ -5,20 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.dao.learningandroid.ListViewDynamicActivity">
+    tools:context="com.example.dao.learningandroid.ListviewAdvancedActivity">
 
     <EditText
         android:id="@+id/txtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/input_name_hint"
         android:inputType="textPersonName"
-        android:text="[your name]" />
-
-    <Spinner
-        android:id="@+id/spinnerLocaton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+         />
 
     <Button
         android:id="@+id/btnAdd"
