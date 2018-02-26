@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,6 +38,7 @@ public class ListViewDynamicActivity extends AppCompatActivity {
     }
 
     private void addControls() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         listView = (ListView) findViewById(R.id.listView);
         txtName = (EditText) findViewById(R.id.txtName);
 
@@ -85,13 +87,10 @@ public class ListViewDynamicActivity extends AppCompatActivity {
         txtName.requestFocus();
     }
 
-    public void onBackToMainActivity(View view) {
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
+        return true;
 
-        Intent intent = null;
-        Log.d(MainActivity.LOG_TAG, "Button ListViewDynamicActivity back to main clicked!");
-        intent = new Intent(ListViewDynamicActivity.this, MainActivity.class);
-        if (intent != null)
-            startActivity(intent);
-        finish();
     }
 }

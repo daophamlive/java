@@ -16,14 +16,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TexteditActivity" />
-        <activity android:name=".CheckboxActivity" />
-        <activity android:name=".ImageviewActivity" />
-        <activity android:name=".ListviewActivity" />
-        <activity android:name=".ListViewDynamicActivity" />
-        <activity android:name=".ListviewAdvancedActivity" />
-        <activity android:name=".GridViewActivity" />
-        <activity android:name=".DateTimeActivity"></activity>
+        <activity
+            android:name=".TexteditActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".CheckboxActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ImageviewActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ListviewActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ListViewDynamicActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ListviewAdvancedActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".GridViewActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DateTimeActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".KaraokeActivity" android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

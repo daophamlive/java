@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
@@ -63,6 +64,7 @@ public class DateTimeActivity extends AppCompatActivity {
     }
 
     private void addControls() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         txtDate = (TextView) findViewById(R.id.txtDate);
         txtTime = (TextView) findViewById(R.id.txtTime);
         btnDate = (ImageButton) findViewById(R.id.btnSetDate);
@@ -73,6 +75,13 @@ public class DateTimeActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
+        return true;
+
     }
 
     public void onBtnSetDate(View view) {
@@ -87,8 +96,8 @@ public class DateTimeActivity extends AppCompatActivity {
             }
         };
 
-        DatePickerDialog dialog = new DatePickerDialog(DateTimeActivity.this,callback,
-                                                        calendar.get(Calendar.YEAR),
+        DatePickerDialog dialog = new DatePickerDialog(DateTimeActivity.this, callback,
+                calendar.get(Calendar.YEAR),
 
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH));
@@ -103,13 +112,4 @@ public class DateTimeActivity extends AppCompatActivity {
     }
 
 
-    public void onBackToMainActivity(View view) {
-
-        Intent intent = null;
-        Log.d(MainActivity.LOG_TAG, "Button ListViewActivity back to main clicked!");
-        intent = new Intent(DateTimeActivity.this, MainActivity.class);
-        if (intent != null)
-            startActivity(intent);
-        finish();
-    }
 }

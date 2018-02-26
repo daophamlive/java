@@ -5,6 +5,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -27,6 +28,12 @@ public class ImageviewActivity extends AppCompatActivity {
         addEvents();
     }
 
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
+        return true;
+
+    }
     private void addEvents() {
         radioButtonBitcoin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -59,22 +66,13 @@ public class ImageviewActivity extends AppCompatActivity {
 
     private void addControls() {
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         radioButtonBitcoin = (RadioButton) findViewById(R.id.radioButtonBitCoin);
         radioButtonEuro = (RadioButton) findViewById(R.id.radioButtonEuro);
         radioButtonGold = (RadioButton) findViewById(R.id.radioButtonGold);
         imageView = (ImageView) findViewById(R.id.imageView);
-        btnBackToMain = (ImageButton) findViewById(R.id.imageButton);
-        
+
     }
 
-    public void onBackToMainActivity(View view) {
-
-        Intent intent = null;
-        Log.d(MainActivity.LOG_TAG, "Button ImageViewActivity back to main clicked!");
-        intent = new Intent(ImageviewActivity.this, MainActivity.class);
-        if (intent != null)
-            startActivity(intent);
-        finish();
-    }
 
 }

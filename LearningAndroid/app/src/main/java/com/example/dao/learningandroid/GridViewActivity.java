@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
@@ -27,7 +28,14 @@ public class GridViewActivity extends AppCompatActivity {
 
     }
 
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
+        return true;
+
+    }
     private void addControls() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         gridView = (GridView) findViewById(R.id.gridView);
         arrayList = new ArrayList<>();
         arrayList.add(R.drawable.bitcoin);
@@ -47,12 +55,4 @@ public class GridViewActivity extends AppCompatActivity {
 
     }
 
-    public void onBackToMainActivity(View view) {
-        Intent intent = null;
-        Log.d(MainActivity.LOG_TAG, "Button GridView back to main clicked!");
-        intent = new Intent(GridViewActivity.this, MainActivity.class);
-        if (intent != null)
-            startActivity(intent);
-        finish();
-    }
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -23,8 +24,15 @@ public class CheckboxActivity extends AppCompatActivity {
         addEvents();
     }
 
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
+        return true;
+
+    }
     void addControls()
     {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
          checkBoxBuyCar = (CheckBox)findViewById(R.id.checkBoxBuyCar);
          checkBoxBuyHouse = (CheckBox)findViewById(R.id.checkBoxBuyHouse);
          checkBoxBuyIPhone = (CheckBox)findViewById(R.id.checkBoxBuyIPhone);
@@ -87,16 +95,6 @@ public class CheckboxActivity extends AppCompatActivity {
 
         textViewOptions.setText(str);
 
-    }
-
-    public void onBackToMainActivity(View view) {
-
-        Intent intent = null;
-        Log.d(MainActivity.LOG_TAG, "Button CheckboxActivity back to main clicked!");
-        intent = new Intent(CheckboxActivity.this, MainActivity.class);
-        if (intent != null)
-            startActivity(intent);
-        finish();
     }
 
 }

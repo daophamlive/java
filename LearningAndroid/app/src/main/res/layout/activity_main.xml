@@ -1,65 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.dao.learningandroid.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="top|center"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        <!--<Button-->
+            <!--android:id="@+id/btnTextEdit"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="TextEdit" />-->
 
-        <Button
-            android:id="@+id/btnTextEdit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextEdit" />
+        <!--<Button-->
+            <!--android:id="@+id/btnCheckboxActivity"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="CheckBox" />-->
 
-        <Button
-            android:id="@+id/btnCheckboxActivity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CheckBox" />
+        <!--<Button-->
+            <!--android:id="@+id/btnImageActivity"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="ImageButton" />-->
 
-        <Button
-            android:id="@+id/btnImageActivity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ImageButton" />
+        <!--<Button-->
+            <!--android:id="@+id/btnListViewActivity"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="List View" />-->
 
-        <Button
-            android:id="@+id/btnListViewActivity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="List View" />
+        <!--<Button-->
+            <!--android:id="@+id/btnListViewDynamicActivity"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Dynamic ListView" />-->
 
-        <Button
-            android:id="@+id/btnListViewDynamicActivity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Dynamic ListView" />
+        <!--<Button-->
+            <!--android:id="@+id/btnListViewAdvancedActivity"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Advanced ListView" />-->
 
-        <Button
-            android:id="@+id/btnListViewAdvancedActivity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Advanced ListView" />
+        <!--<Button-->
+            <!--android:id="@+id/btnGridView"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="GridView" />-->
 
-        <Button
-            android:id="@+id/btnGridView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="GridView" />
+        <!--<Button-->
+            <!--android:id="@+id/btnDateTimePicker"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Datetime Picker" />-->
 
-        <Button
-            android:id="@+id/btnDateTimePicker"
+        <ListView
+            android:id="@+id/listViewMain"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Datetime Picker" />
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+            android:layout_height="match_parent" />
+
+</LinearLayout>

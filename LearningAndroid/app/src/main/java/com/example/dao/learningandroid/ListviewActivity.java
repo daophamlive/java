@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,6 +25,12 @@ public class ListviewActivity extends AppCompatActivity {
         addEvents();
     }
 
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
+        return true;
+
+    }
     private void addEvents() {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -35,6 +42,7 @@ public class ListviewActivity extends AppCompatActivity {
 
     private void addControls() {
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         arrDays = getResources().getStringArray(R.array.arrDay);
         adapterDays = new ArrayAdapter<String>(
                             ListviewActivity.this,
@@ -47,13 +55,4 @@ public class ListviewActivity extends AppCompatActivity {
 
     }
 
-    public void onBackToMainActivity(View view) {
-
-        Intent intent = null;
-        Log.d(MainActivity.LOG_TAG, "Button ListViewActivity back to main clicked!");
-        intent = new Intent(ListviewActivity.this, MainActivity.class);
-        if (intent != null)
-            startActivity(intent);
-        finish();
-    }
 }

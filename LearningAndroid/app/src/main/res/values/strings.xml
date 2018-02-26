@@ -17,4 +17,8 @@
         <item> Tp HCM</item>
     </string-array>
     <string name="input_name_hint">Input a name</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="songs">Songs</string>
+    <string name="favourite_song">Favourite Songs</string>
 </resources>
