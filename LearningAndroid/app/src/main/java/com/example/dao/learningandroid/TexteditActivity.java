@@ -1,15 +1,14 @@
 package com.example.dao.learningandroid;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class TexteditActivity extends AppCompatActivity {
+public class TexteditActivity extends Activity {
 
     EditText editText;
     TextView textviewContent;
@@ -24,7 +23,7 @@ public class TexteditActivity extends AppCompatActivity {
         String textFromActivity = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         editText.setText(textFromActivity);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public boolean onOptionsItemSelected(MenuItem item){

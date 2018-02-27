@@ -1,16 +1,15 @@
 package com.example.dao.learningandroid;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CheckboxActivity extends AppCompatActivity {
+public class CheckboxActivity extends Activity {
 
     CheckBox checkBoxBuyCar;
     CheckBox checkBoxBuyHouse;
@@ -32,7 +31,7 @@ public class CheckboxActivity extends AppCompatActivity {
     }
     void addControls()
     {
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
          checkBoxBuyCar = (CheckBox)findViewById(R.id.checkBoxBuyCar);
          checkBoxBuyHouse = (CheckBox)findViewById(R.id.checkBoxBuyHouse);
          checkBoxBuyIPhone = (CheckBox)findViewById(R.id.checkBoxBuyIPhone);

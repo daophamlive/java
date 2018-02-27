@@ -1,9 +1,8 @@
 package com.example.dao.learningandroid;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class ListviewActivity extends AppCompatActivity {
+public class ListviewActivity extends Activity {
 
     ListView listView;
     String [] arrDays;
@@ -42,7 +41,7 @@ public class ListviewActivity extends AppCompatActivity {
 
     private void addControls() {
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         arrDays = getResources().getStringArray(R.array.arrDay);
         adapterDays = new ArrayAdapter<String>(
                             ListviewActivity.this,

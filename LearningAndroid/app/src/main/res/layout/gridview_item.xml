@@ -9,5 +9,5 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_weight="1"
-        app:srcCompat="@drawable/bitcoin" />
+        android:src="@drawable/bitcoin" />
 </LinearLayout>

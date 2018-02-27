@@ -1,14 +1,15 @@
 package com.example.dao.learningandroid;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.DateFormat;
-import android.util.Log;
+//import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
@@ -21,7 +22,7 @@ import java.util.Calendar;
 
 
 
-public class DateTimeActivity extends AppCompatActivity {
+public class DateTimeActivity extends Activity {
 
     TextView txtDate;
     static TextView txtTime;
@@ -64,7 +65,7 @@ public class DateTimeActivity extends AppCompatActivity {
     }
 
     private void addControls() {
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         txtDate = (TextView) findViewById(R.id.txtDate);
         txtTime = (TextView) findViewById(R.id.txtTime);
         btnDate = (ImageButton) findViewById(R.id.btnSetDate);

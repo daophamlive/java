@@ -1,18 +1,15 @@
 package com.example.dao.learningandroid;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 
-public class ImageviewActivity extends AppCompatActivity {
+public class ImageviewActivity extends Activity {
 
     RadioButton radioButtonBitcoin;
     RadioButton radioButtonEuro;
@@ -66,7 +63,7 @@ public class ImageviewActivity extends AppCompatActivity {
 
     private void addControls() {
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         radioButtonBitcoin = (RadioButton) findViewById(R.id.radioButtonBitCoin);
         radioButtonEuro = (RadioButton) findViewById(R.id.radioButtonEuro);
         radioButtonGold = (RadioButton) findViewById(R.id.radioButtonGold);

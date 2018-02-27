@@ -1,7 +1,7 @@
 package com.example.dao.learningandroid;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,9 +14,8 @@ import com.example.dao.adapter.SongAdapter;
 import com.example.dao.model.Song;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class KaraokeActivity extends AppCompatActivity {
+public class KaraokeActivity extends Activity {
 
     TabHost mTabHost;
     ArrayList<Song> songs = new ArrayList<>();
@@ -28,7 +27,7 @@ public class KaraokeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_karaoke);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         addControls();
         addEvents();

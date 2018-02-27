@@ -28,7 +28,7 @@
             android:layout_height="64dp"
             android:layout_weight="0"
             android:onClick="onBtnSetDate"
-            app:srcCompat="@drawable/calendar_icon" />
+            android:src="@drawable/calendar_icon" />
     </LinearLayout>
 
     <LinearLayout
@@ -52,10 +52,10 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_weight="0"
-            app:srcCompat="@drawable/time_icon"
+            android:src="@drawable/time_icon"
             android:onClick="onBtnSetTime"/>
 
-
+        <!--// android:b="@drawable/time_icon"-->
 
     </LinearLayout>
 

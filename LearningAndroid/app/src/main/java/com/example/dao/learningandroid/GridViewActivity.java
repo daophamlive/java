@@ -1,19 +1,17 @@
 package com.example.dao.learningandroid;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
 import com.example.dao.adapter.ImageAdapter;
 
 import java.util.ArrayList;
 
-public class GridViewActivity extends AppCompatActivity {
+public class GridViewActivity extends Activity {
 
     GridView gridView;
     ImageAdapter adapter;
@@ -35,7 +33,7 @@ public class GridViewActivity extends AppCompatActivity {
 
     }
     private void addControls() {
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         gridView = (GridView) findViewById(R.id.gridView);
         arrayList = new ArrayList<>();
         arrayList.add(R.drawable.bitcoin);
