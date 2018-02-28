@@ -2,6 +2,7 @@ package com.example.dao.learningandroid;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +15,6 @@ import com.example.dao.adapter.SongAdapter;
 import com.example.dao.model.Song;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class KaraokeActivity extends Activity {
 
@@ -24,8 +24,12 @@ public class KaraokeActivity extends Activity {
     private TabHost mTabHost;
 
     private ArrayList<Song> songs = new ArrayList<>();
+    private ArrayList<Song> favorites = new ArrayList<>();
     private SongAdapter songAdapter;
+    private SongAdapter favoriteAdapter;
+
     private ListView listViewSong;
+    private ListView listViewFavorite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,17 +48,33 @@ public class KaraokeActivity extends Activity {
                 addListViewIntoTab(tabId);
             }
         });
+
+
     }
 
     private void initSongs() {
-        songs.add(new Song(123, "yeu em dai lau", "le hieu", true));
-        songs.add(new Song(456, "yeu em dai lau1", "le hieu1", false));
-        songs.add(new Song(7698, "yeu em dai lau2", "le hieu2", true));
-        songs.add(new Song(23656, "yeu em dai lau3", "le hieu3", false));
-        songs.add(new Song(3676, "yeu em dai lau4", "le hieu4", false));
-        songs.add(new Song(567, "yeu em dai lau5", "le hieu5", false));
+        for (int i =0; i < 1000; i ++)
+        {
+            Song song = new Song(i, "yeu em dai lau" + String.valueOf(i), "le hieu " + String.valueOf(i) , false);
+            songs.add(song);
+
+            if(song.isFavorite())
+                favorites.add(song);
+        }
         songAdapter = new SongAdapter(this, R.layout.song_item, songs);
         listViewSong.setAdapter(songAdapter);
+
+        favoriteAdapter = new SongAdapter(this, R.layout.song_item, favorites);
+        listViewFavorite.setAdapter(favoriteAdapter);
+
+        songAdapter.registerDataSetObserver(new DataSetObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                list1.setSelection(adp.getCount()-1);
+            }
+        });
+
     }
 
     private void addControls() {
@@ -85,20 +105,8 @@ public class KaraokeActivity extends Activity {
         FrameLayout frameLayout = mTabHost.getTabContentView();
         LinearLayout linearLayoutSong = (LinearLayout) frameLayout.findViewById(R.id.songTab);
         LinearLayout linearLayoutFavoritSong = (LinearLayout) frameLayout.findViewById(R.id.favouriteTab);
-        if(tabid.equalsIgnoreCase(SONG_TAB))
-        {
-            if(linearLayoutFavoritSong != null)
-                linearLayoutFavoritSong.removeView(listViewSong);
-            linearLayoutSong.addView(listViewSong);
-            songAdapter.setShowFavoriteOnly(false);
-        }
-        else if(tabid.equalsIgnoreCase(FAVORITE_TAB))
-        {
-            if(linearLayoutSong != null)
-                linearLayoutSong.removeView(listViewSong);
-            linearLayoutFavoritSong.addView(listViewSong);
-            songAdapter.setShowFavoriteOnly(true);
-        }
+        linearLayoutSong.addView(listViewSong);
+        linearLayoutFavoritSong.addView(listViewFavorite);
     }
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);

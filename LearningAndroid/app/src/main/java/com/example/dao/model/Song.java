@@ -10,6 +10,11 @@ public class Song {
     private String singer;
     private boolean favorite = false;
 
+    public Song() {
+        super();
+        id = -1;
+    }
+
     public int getId() {
         return id;
     }
