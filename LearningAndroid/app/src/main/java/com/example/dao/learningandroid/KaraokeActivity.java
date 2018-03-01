@@ -2,18 +2,18 @@ package com.example.dao.learningandroid;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TabHost;
 
 import com.example.dao.adapter.SongAdapter;
+import com.example.dao.model.ObjectStringConvertion;
 import com.example.dao.model.Song;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class KaraokeActivity extends Activity {
@@ -24,12 +24,8 @@ public class KaraokeActivity extends Activity {
     private TabHost mTabHost;
 
     private ArrayList<Song> songs = new ArrayList<>();
-    private ArrayList<Song> favorites = new ArrayList<>();
     private SongAdapter songAdapter;
-    private SongAdapter favoriteAdapter;
-
     private ListView listViewSong;
-    private ListView listViewFavorite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +33,11 @@ public class KaraokeActivity extends Activity {
         setContentView(R.layout.activity_karaoke);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        addControls();
+        try {
+            addControls();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         addEvents();
     }
 
@@ -45,11 +45,13 @@ public class KaraokeActivity extends Activity {
         mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                addListViewIntoTab(tabId);
+                try {
+                    showTab(tabId);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
-
-
     }
 
     private void initSongs() {
@@ -57,27 +59,12 @@ public class KaraokeActivity extends Activity {
         {
             Song song = new Song(i, "yeu em dai lau" + String.valueOf(i), "le hieu " + String.valueOf(i) , false);
             songs.add(song);
-
-            if(song.isFavorite())
-                favorites.add(song);
         }
         songAdapter = new SongAdapter(this, R.layout.song_item, songs);
         listViewSong.setAdapter(songAdapter);
-
-        favoriteAdapter = new SongAdapter(this, R.layout.song_item, favorites);
-        listViewFavorite.setAdapter(favoriteAdapter);
-
-        songAdapter.registerDataSetObserver(new DataSetObserver() {
-            @Override
-            public void onChanged() {
-                super.onChanged();
-                list1.setSelection(adp.getCount()-1);
-            }
-        });
-
     }
 
-    private void addControls() {
+    private void addControls() throws IOException {
 
         mTabHost = (TabHost) findViewById(R.id.tabhost);
         mTabHost.setup();
@@ -97,16 +84,36 @@ public class KaraokeActivity extends Activity {
         mTabHost.addTab(favoriteTabSpec);
 
         initSongs();
-        addListViewIntoTab(SONG_TAB);
+        showTab(SONG_TAB);
     }
 
-    public void addListViewIntoTab(String tabid)
-    {
+    public void showTab(String tabid) throws IOException {
         FrameLayout frameLayout = mTabHost.getTabContentView();
         LinearLayout linearLayoutSong = (LinearLayout) frameLayout.findViewById(R.id.songTab);
         LinearLayout linearLayoutFavoritSong = (LinearLayout) frameLayout.findViewById(R.id.favouriteTab);
-        linearLayoutSong.addView(listViewSong);
-        linearLayoutFavoritSong.addView(listViewFavorite);
+
+        if(tabid.equalsIgnoreCase(SONG_TAB))
+        {
+            if(linearLayoutFavoritSong != null)
+                linearLayoutFavoritSong.removeView(listViewSong);
+
+            linearLayoutSong.addView(listViewSong);
+
+            songAdapter.getFilter().filter("");
+            songAdapter.notifyDataSetChanged();
+        }
+        else if(tabid.equalsIgnoreCase(FAVORITE_TAB)){
+
+            if(linearLayoutSong != null)
+                linearLayoutSong.removeView(listViewSong);
+
+            linearLayoutFavoritSong.addView(listViewSong);
+            Song filterSong = new Song();
+            filterSong.setFavorite(true);
+            CharSequence filter = ObjectStringConvertion.toString(filterSong);
+            songAdapter.getFilter().filter(filter);
+            songAdapter.notifyDataSetChanged();
+        }
     }
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
