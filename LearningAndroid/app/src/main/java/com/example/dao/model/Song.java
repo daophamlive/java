@@ -1,14 +1,16 @@
 package com.example.dao.model;
 
+import java.io.Serializable;
+
 /**
  * Created by dao on 2/25/18.
  */
 
-public class Song {
+public class Song implements Serializable {
     private int id;
     private String name;
     private String singer;
-    private boolean favorite = false;
+    private Boolean favorite = false;
 
     public Song() {
         super();
@@ -39,7 +41,7 @@ public class Song {
         this.singer = singer;
     }
 
-    public boolean isFavorite() {
+    public Boolean isFavorite() {
         return favorite;
     }
 

@@ -55,7 +55,7 @@ public class KaraokeActivity extends Activity {
     }
 
     private void initSongs() {
-        for (int i =0; i < 1000; i ++)
+        for (int i =0; i < 100000; i ++)
         {
             Song song = new Song(i, "yeu em dai lau" + String.valueOf(i), "le hieu " + String.valueOf(i) , false);
             songs.add(song);
@@ -110,7 +110,7 @@ public class KaraokeActivity extends Activity {
             linearLayoutFavoritSong.addView(listViewSong);
             Song filterSong = new Song();
             filterSong.setFavorite(true);
-            CharSequence filter = ObjectStringConvertion.toString(filterSong);
+            CharSequence filter = ObjectStringConvertion.convertObjectToString(filterSong);
             songAdapter.getFilter().filter(filter);
             songAdapter.notifyDataSetChanged();
         }

@@ -158,13 +158,7 @@ public class SongAdapter extends ArrayAdapter<Song> implements Filterable {
             Song filterObject = null;
             if(constraint.length() != 0)
             {
-                try {
-                    filterObject = (Song) ObjectStringConvertion.fromString(constraint.toString());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
+                filterObject = (Song) ObjectStringConvertion.convertStringToObject(constraint.toString());
             }
 
             FilterResults results = new FilterResults();
