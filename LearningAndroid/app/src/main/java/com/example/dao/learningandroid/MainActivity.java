@@ -24,7 +24,8 @@ public class MainActivity extends Activity {
         LISTVIEW_ADVANCE,
         GRIDVIEW,
         DATETIME_PICKER,
-        KARAOKE
+        KARAOKE,
+        LEARNING_ACTIVITY
     };
 
 
@@ -165,6 +166,13 @@ public class MainActivity extends Activity {
                 intent = new Intent(MainActivity.this, KaraokeActivity.class);
             }
             break;
+
+            case LEARNING_ACTIVITY: {
+                Log.d(LOG_TAG, "Button btnLearning activity clicked!");
+                intent = new Intent(MainActivity.this, LearningActivity.class);
+            }
+            break;
+
             default:
                 break;
         }

@@ -56,4 +56,9 @@ public class Song implements Serializable {
         this.singer = singer;
         this.favorite = favorite;
     }
+
+    @Override
+    public String toString() {
+        return "Song name " + getName() + " ca si: " + getSinger();
+    }
 }

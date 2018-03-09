@@ -37,7 +37,10 @@
         <activity
             android:name=".KaraokeActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".LearningActivity"></activity>
+        <activity
+            android:name=".LearningActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".Learning2Activity" android:parentActivityName=".LearningActivity"/>
     </application>
 
 </manifest>
